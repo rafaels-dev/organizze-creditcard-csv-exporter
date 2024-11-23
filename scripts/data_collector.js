@@ -1,0 +1,1 @@
+window.postMessage({ type: 'TRANSACTIONS_UPDATED', transactions: window.tmp.transactions }, '*');

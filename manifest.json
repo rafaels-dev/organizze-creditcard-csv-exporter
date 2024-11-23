@@ -1,0 +1,34 @@
+{
+  "name": "Organizze - Exportar CSV de fatura do cartão (não-oficial)",
+  "description": "Extensão não-oficial para exportar faturas de cartão de crédito do Organizze em CSV.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_icon": "images/csv.png"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://app.organizze.com.br/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://app.organizze.com.br/*"],
+      "js": ["dist/content.bundle.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*"],
+      "matches": ["https://app.organizze.com.br/*"]
+    },
+    {
+      "resources": ["scripts/data_collector.js"],
+      "matches": ["https://app.organizze.com.br/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "dist/background.bundle.js"
+  }
+}
